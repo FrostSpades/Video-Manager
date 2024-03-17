@@ -12,15 +12,19 @@ SOURCES += \
     homepage.cpp \
     main.cpp \
     mainwindow.cpp \
+    profile.cpp \
     profilecreator.cpp \
     startuppage.cpp \
+    videomanagermodel.cpp \
     videopage.cpp
 
 HEADERS += \
     homepage.h \
     mainwindow.h \
+    profile.h \
     profilecreator.h \
     startuppage.h \
+    videomanagermodel.h \
     videopage.h
 
 FORMS += \

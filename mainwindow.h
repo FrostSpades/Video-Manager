@@ -7,6 +7,7 @@
 #include "videopage.h"
 #include "startuppage.h"
 #include "profileCreator.h"
+#include "videomanagermodel.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -28,6 +29,7 @@ private:
     VideoPage *videoPage;
     StartupPage *startupPage;
     ProfileCreator *profileCreator;
+    VideoManagerModel *videoManagerModel;
     QStackedWidget *stackedWidget;
 
     void initializeSignalSlots();
@@ -47,5 +49,21 @@ public slots:
      * Hides the profile creation box.
      */
     void hideProfileCreator();
+
+    /**
+     * @brief handleNewProfile
+     * Handles the submission of a new profile.
+     * @param name
+     * @param folderPath
+     */
+    void onProfileCreated(QString name, QString folderPath);
+
+signals:
+    /**
+     * @brief startProfileCreator
+     * Signal that profile creator
+     * has started.
+     */
+    void startProfileCreator();
 };
 #endif // MAINWINDOW_H

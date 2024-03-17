@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     , videoPage(new VideoPage)
     , startupPage(new StartupPage)
     , profileCreator(new ProfileCreator)
+    , videoManagerModel(new VideoManagerModel)
     , stackedWidget(new QStackedWidget(this))
 {
     ui->setupUi(this);
@@ -41,13 +42,23 @@ void MainWindow::changeToRoomPage() {
 
 void MainWindow::showProfileCreator() {
     profileCreator->exec();
+
+    emit startProfileCreator();
 }
 
 void MainWindow::hideProfileCreator() {
     profileCreator->close();
 }
 
+void MainWindow::onProfileCreated(QString name, QString folderPath) {
+    hideProfileCreator();
+}
+
 void MainWindow::initializeSignalSlots() {
     connect(startupPage, &StartupPage::clickCreateProfile, this, &MainWindow::showProfileCreator);
+
     connect(profileCreator, &ProfileCreator::clickCancel, this, &MainWindow::hideProfileCreator);
+    connect(profileCreator, &ProfileCreator::clickSubmit, this, &MainWindow::onProfileCreated);
+
+    connect(this, &MainWindow::startProfileCreator, profileCreator, &ProfileCreator::onStart);
 }

@@ -35,8 +35,6 @@ private:
     void initializeSignalSlots();
 
 public slots:
-    void changeToRoomPage();
-    void changeToHomePage();
 
     /**
      * @brief showProfileCreator
@@ -58,6 +56,20 @@ public slots:
      */
     void onProfileCreated(QString name, QString folderPath);
 
+    /**
+     * @brief showError
+     * Creates an error box with
+     * the provided error message
+     * @param errorMessage error message to show
+     */
+    void showError(QString errorMessage);
+
+    /**
+     * @brief navigateToHomePage
+     * Shows the home page.
+     */
+    void navigateToHomePage();
+
 signals:
     /**
      * @brief startProfileCreator
@@ -65,5 +77,13 @@ signals:
      * has started.
      */
     void startProfileCreator();
+
+    /**
+     * @brief createProfileRequest
+     * Requests a profile creation
+     * @param name name of profile
+     * @param folderPath folder path of profile
+     */
+    void createProfileRequest(QString name, QString folderPath);
 };
 #endif // MAINWINDOW_H

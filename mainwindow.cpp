@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_homepage.h"
 #include "ui_mainwindow.h"
+#include <QMessageBox>
 #include <iostream>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -30,14 +31,8 @@ MainWindow::~MainWindow()
     delete videoPage;
     delete startupPage;
     delete profileCreator;
-}
-
-void MainWindow::changeToHomePage() {
-    stackedWidget->setCurrentIndex(0);
-}
-
-void MainWindow::changeToRoomPage() {
-    stackedWidget->setCurrentIndex(1);
+    delete videoManagerModel;
+    delete stackedWidget;
 }
 
 void MainWindow::showProfileCreator() {
@@ -50,8 +45,18 @@ void MainWindow::hideProfileCreator() {
     profileCreator->close();
 }
 
+void MainWindow::showError(QString errorMessage) {
+    QMessageBox::critical(nullptr, "Error", errorMessage);
+}
+
 void MainWindow::onProfileCreated(QString name, QString folderPath) {
     hideProfileCreator();
+
+    emit createProfileRequest(name, folderPath);
+}
+
+void MainWindow::navigateToHomePage() {
+    stackedWidget->setCurrentIndex(1);
 }
 
 void MainWindow::initializeSignalSlots() {
@@ -59,6 +64,10 @@ void MainWindow::initializeSignalSlots() {
 
     connect(profileCreator, &ProfileCreator::clickCancel, this, &MainWindow::hideProfileCreator);
     connect(profileCreator, &ProfileCreator::clickSubmit, this, &MainWindow::onProfileCreated);
+    connect(profileCreator, &ProfileCreator::error, this, &MainWindow::showError);
 
     connect(this, &MainWindow::startProfileCreator, profileCreator, &ProfileCreator::onStart);
+    connect(this, &MainWindow::createProfileRequest, videoManagerModel, &VideoManagerModel::createProfile);
+
+    connect(videoManagerModel, &VideoManagerModel::finishProfileCreation, this, &MainWindow::navigateToHomePage);
 }

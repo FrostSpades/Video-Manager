@@ -35,6 +35,13 @@ signals:
      */
     void clickSubmit(QString name, QString folderPath);
 
+    /**
+     * @brief error
+     * Signals that an error has occurred.
+     * @param errorMessage error message
+     */
+    void error(QString errorMessage);
+
 public slots:
     /**
      * @brief onStart

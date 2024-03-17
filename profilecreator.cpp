@@ -26,16 +26,19 @@ void ProfileCreator::on_submitButton_clicked()
 {
     // Check if inputs are empty
     if (ui->inputName->toPlainText() == QString("") || ui->inputFolderPath->toPlainText() == QString("")) {
+        emit error("Inputs cannot be empty");
         return;
     }
 
     QDir directory(ui->inputFolderPath->toPlainText());
 
     if (!directory.exists()){
+        emit error("Directory does not exist");
         return;
     }
 
     if (!directory.isEmpty()) {
+        emit error("Directory location needs to be empty");
         return;
     }
 

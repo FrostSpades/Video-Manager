@@ -34,6 +34,13 @@ private:
 
     void initializeSignalSlots();
 
+    /**
+     * @brief setGlobalPalette
+     * Sets the palette of all
+     * the widgets.
+     */
+    void setGlobalPalette();
+
 public slots:
 
     /**

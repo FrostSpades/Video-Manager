@@ -10,6 +10,12 @@
     <height>300</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
   <property name="windowTitle">
    <string>Profile Creator</string>
   </property>
@@ -21,6 +27,10 @@
      <width>291</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(100, 100, 100);
+color: rgb(230, 230, 230);</string>
    </property>
    <property name="html">
     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -42,6 +52,10 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <height>31</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(100, 100, 100);
+color: rgb(230, 230, 230);</string>
+   </property>
    <property name="text">
     <string>Submit</string>
    </property>
@@ -54,6 +68,10 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <width>141</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(100, 100, 100);
+color: rgb(230, 230, 230);</string>
    </property>
    <property name="text">
     <string>Cancel</string>
@@ -68,6 +86,9 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <height>31</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(230, 230, 230);</string>
+   </property>
    <property name="text">
     <string>Name :</string>
    </property>
@@ -81,6 +102,10 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <height>31</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(100, 100, 100);
+color: rgb(230, 230, 230);</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
@@ -90,6 +115,9 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <width>49</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(230, 230, 230);</string>
    </property>
    <property name="text">
     <string>Folder:</string>
@@ -103,6 +131,10 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <width>51</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(100, 100, 100);
+color: rgb(230, 230, 230);</string>
    </property>
    <property name="text">
     <string>Source</string>

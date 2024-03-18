@@ -17,6 +17,7 @@ public:
 
 private slots:
 
+
 private:
     Ui::HomePage *ui;
 

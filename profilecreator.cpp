@@ -2,13 +2,15 @@
 #include "ui_profilecreator.h"
 #include <QFileDialog>
 #include <QDir>
-#include <iostream>
 
 ProfileCreator::ProfileCreator(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::ProfileCreator)
 {
     ui->setupUi(this);
+
+    setMinimumSize(size());
+    setMaximumSize(size());
 }
 
 ProfileCreator::~ProfileCreator()

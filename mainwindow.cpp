@@ -2,7 +2,6 @@
 #include "ui_homepage.h"
 #include "ui_mainwindow.h"
 #include <QMessageBox>
-#include <iostream>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -21,6 +20,11 @@ MainWindow::MainWindow(QWidget *parent)
     stackedWidget->addWidget(videoPage);
     setCentralWidget(stackedWidget);
 
+    // TEMPORARY
+    stackedWidget->setCurrentIndex(1);
+
+    setGlobalPalette();
+
     initializeSignalSlots();
 }
 
@@ -33,6 +37,18 @@ MainWindow::~MainWindow()
     delete profileCreator;
     delete videoManagerModel;
     delete stackedWidget;
+}
+
+void MainWindow::setGlobalPalette() {
+    // Create a palette with desired colors
+    QPalette palette;
+    palette.setColor(QPalette::Window, QColor(50, 50, 50)); // Background color
+    palette.setColor(QPalette::Button, QColor(50, 50, 50));
+
+    // Apply the palette globally
+    this->setPalette(palette);
+    startupPage->setPalette(palette);
+    profileCreator->setPalette(palette);
 }
 
 void MainWindow::showProfileCreator() {
